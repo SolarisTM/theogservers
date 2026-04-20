@@ -17,7 +17,7 @@
             min-height: 100vh;
         }
 
-        /* Widened window to support 4 columns comfortably */
+        /* Widened window for 4-column layout */
         .main-window {
             width: 1100px; 
             max-width: 98%;
@@ -31,17 +31,17 @@
             padding: 10px;
             background: #ece9d8;
             border-bottom: 1px solid #aca899;
-            justify-content: center; /* Centralizes the menu */
+            justify-content: center;
         }
 
         .action-buttons button {
             min-width: 100px;
         }
 
-        /* 4-Column Grid with larger banners */
+        /* 4-Column Grid */
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr); /* Exactly 4 columns */
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             padding: 20px;
             background: #fff;
@@ -54,7 +54,7 @@
             border: 1px solid #7f9db9;
             overflow: hidden;
             cursor: pointer;
-            height: 150px; /* Increased image height */
+            height: 150px;
             transition: transform 0.1s;
         }
 
@@ -116,8 +116,8 @@
                 <button class="hl-sound">Home</button>
                 <button class="hl-sound">Games</button>
                 <button class="hl-sound">Servers</button>
-                <button class="hl-sound" onclick="window.open('https://archive.org/details/@rizentm')">Archive</button>
-                <button class="hl-sound" style="background: #ffbd69; font-weight: bold;">Join Discord</button>
+                <button class="hl-sound">Status</button>
+                <button class="hl-sound" style="background: #ffbd69; font-weight: bold;">Community</button>
             </div>
 
             <div class="game-grid">
@@ -158,7 +158,7 @@
             <div class="status-bar">
                 <p class="status-bar-field">Browsing: Games</p>
                 <p class="status-bar-field">Status: System Online</p>
-                <p class="status-bar-field">v1.3</p>
+                <p class="status-bar-field">v1.4</p>
             </div>
         </div>
     </div>
