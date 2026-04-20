@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
     <style>
         body {
-            /* Fundo Bliss do XP clássico */
             background: #0078D7 url('https://upload.wikimedia.org/wikipedia/commons/7/7d/Bliss_%28Windows_XP%29.png') no-repeat center center fixed;
             background-size: cover;
             margin: 0; padding: 20px;
@@ -18,14 +17,12 @@
             min-height: 100vh;
         }
 
-        /* Janela Principal Centralizada */
         .main-window {
             width: 900px;
             max-width: 95%;
             margin-top: 40px;
         }
 
-        /* Botões de Ação no Topo (Estilo OldServers) */
         .action-buttons {
             display: flex;
             gap: 5px;
@@ -34,7 +31,6 @@
             border-bottom: 1px solid #aca899;
         }
 
-        /* Grid de Jogos */
         .game-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -78,7 +74,6 @@
             background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
         }
 
-        /* Barra de Tarefas XP */
         .taskbar {
             position: fixed; bottom: 0; left: 0; right: 0;
             height: 30px;
@@ -101,7 +96,7 @@
 
     <div class="window main-window">
         <div class="title-bar">
-            <div class="title-bar-text">The OG Servers - Classic Multiplayer Revival [Uberlândia, MG]</div>
+            <div class="title-bar-text">The OG Servers - Classic Multiplayer Revival</div>
             <div class="title-bar-controls">
                 <button aria-label="Minimize"></button>
                 <button aria-label="Maximize"></button>
@@ -110,11 +105,11 @@
         </div>
         <div class="window-body" style="padding: 0;">
             <div class="action-buttons">
-                <button class="hl-sound">Inicio</button>
-                <button class="hl-sound">Juegos</button>
-                <button class="hl-sound">Servidores</button>
+                <button class="hl-sound">Home</button>
+                <button class="hl-sound">Games</button>
+                <button class="hl-sound">Servers</button>
                 <button class="hl-sound" onclick="window.open('https://archive.org/details/@rizentm')">Archive</button>
-                <button class="hl-sound" style="background: #ffbd69; font-weight: bold;">Unite al Discord</button>
+                <button class="hl-sound" style="background: #ffbd69; font-weight: bold;">Join Discord</button>
             </div>
 
             <div class="game-grid">
@@ -145,21 +140,20 @@
             </div>
 
             <div class="status-bar">
-                <p class="status-bar-field">Explorando: Juegos</p>
-                <p class="status-bar-field">Status: Sistema Online</p>
+                <p class="status-bar-field">Browsing: Games</p>
+                <p class="status-bar-field">Status: System Online</p>
                 <p class="status-bar-field">v1.2</p>
             </div>
         </div>
     </div>
 
     <footer class="taskbar">
-        <button class="start-btn">Iniciar</button>
+        <button class="start-btn">Start</button>
         <div style="margin-left: 10px; color: white; font-size: 11px;">theogservers.com</div>
         <div style="margin-left: auto; color: white; font-size: 11px;" id="clock"></div>
     </footer>
 
     <script>
-        // Som de Seleção do Half-Life
         const hlClick = new Audio('https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Half-Life+Select+Sound&filename=mt/MTY4NTI2NDMxNjg1Mjcy_p_2fGz_2biW9_2fM.mp3');
 
         document.querySelectorAll('.hl-sound').forEach(el => {
@@ -169,7 +163,6 @@
             });
         });
 
-        // Relógio
         setInterval(() => {
             const now = new Date();
             document.getElementById('clock').innerText = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
