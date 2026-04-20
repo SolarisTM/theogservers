@@ -17,9 +17,9 @@
             min-height: 100vh;
         }
 
-        /* Janela Principal Larga */
+        /* Janela Geral alargada para suportar o novo grid horizontal */
         .main-window {
-            width: 1450px; 
+            width: 1600px; 
             max-width: 98%;
             margin-top: 5px;
         }
@@ -36,7 +36,7 @@
             width: 100%;
         }
 
-        /* Menu de Navegação com Ícones */
+        /* Menu de Navegação */
         .action-buttons {
             display: flex;
             gap: 12px;
@@ -78,19 +78,12 @@
             text-transform: uppercase;
         }
 
-        .welcome-section p {
-            margin: 0;
-            color: #ccc;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        /* Game Grid - Ajustado para mais espaço nas laterais */
+        /* Game Grid - Com o respiro lateral de 60px */
         .game-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
-            padding: 30px 60px; /* Aumentado o espaço lateral para 60px */
+            padding: 30px 60px;
             background: #191919;
             max-height: 600px;
             overflow-y: auto;
@@ -101,12 +94,12 @@
         .game-grid::-webkit-scrollbar-track { background: #191919; }
         .game-grid::-webkit-scrollbar-thumb { background: #333; border: 2px solid #191919; }
 
-        /* Game Card - Estilo Cartão com borda sutil */
+        /* Game Card - Ajustado para estilo Steam Grid Horizontal */
         .game-card {
             border: 1px solid #444;
             overflow: hidden;
             cursor: pointer;
-            height: 230px;
+            height: 200px; /* Reduzi a altura para ficar mais horizontal */
             transition: transform 0.1s, border-color 0.2s, box-shadow 0.2s;
             display: flex;
             flex-direction: column;
@@ -126,7 +119,7 @@
 
         .game-card img {
             width: 100%;
-            height: 185px;
+            height: 160px; /* Proporção de banner horizontal */
             object-fit: cover;
         }
 
@@ -154,7 +147,7 @@
             border-top: 1px solid #252525;
         }
 
-        /* Taskbar Windows XP */
+        /* Taskbar */
         .taskbar {
             position: fixed; bottom: 0; left: 0; right: 0;
             height: 30px;
@@ -212,8 +205,7 @@
 
                 <div class="welcome-section">
                     <h2>Welcome to The OG Servers!</h2>
-                    <p>At The OG Servers, we are dedicated to keeping the multiplayer spirit alive for the greatest classic games.<br>
-                    Join our community, find active servers, and relive the golden age of online gaming.</p>
+                    <p>At The OG Servers, we are dedicated to keeping the multiplayer spirit alive for the greatest classic games.</p>
                 </div>
 
                 <div class="game-grid">
@@ -222,7 +214,7 @@
                         <div class="game-title">Battlefield 2</div>
                     </div>
                     <div class="game-card hl-sound">
-                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202306/2015/a12361d763784a9e525143a5023a633d.png">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/7940/header.jpg">
                         <div class="game-title">Call of Duty 4</div>
                     </div>
                     <div class="game-card hl-sound">
