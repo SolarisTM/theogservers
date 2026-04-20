@@ -88,41 +88,47 @@
         .game-grid::-webkit-scrollbar-track { background: #191919; }
         .game-grid::-webkit-scrollbar-thumb { background: #333; border: 2px solid #191919; }
 
-        /* Updated Game Card Style to match reference image */
+        /* Game Card Style with Subtle Inner Borders for a "Card" effect */
         .game-card {
-            border: 1px solid #444;
+            border: 1px solid #444; /* Sutil outer border */
             overflow: hidden;
             cursor: pointer;
-            height: 190px; /* Adjusted height for new layout */
-            transition: transform 0.1s, border-color 0.2s;
+            height: 190px;
+            transition: transform 0.1s, border-color 0.2s, box-shadow 0.2s;
             display: flex;
-            flex-direction: column; /* Stack image and title vertically */
-            background: #000; /* Fallback background */
+            flex-direction: column;
+            background: #000;
+            
+            /* ADDED: Minimal inner border effect for a "Card" look */
+            box-shadow: 
+                inset 1px 1px 0 rgba(255,255,255,0.05), /* Very fine light highlight */
+                inset -1px -1px 0 rgba(0,0,0,0.3);       /* Very fine dark shadow */
         }
 
         .game-card:hover {
             transform: scale(1.02);
             border-color: #ff8e00;
+            box-shadow: 
+                inset 1px 1px 0 rgba(255,142,0,0.3), /* Highlight color matches hover border */
+                inset -1px -1px 0 rgba(0,0,0,0.3);
         }
 
         .game-card img {
             width: 100%;
-            height: 150px; /* Set specific height for the image area */
+            height: 150px;
             object-fit: cover;
-            /* Remove brightness filter so image is clear */
         }
 
-        /* Updated Game Title to be a solid black bar at the bottom */
+        /* Solid black bar at the bottom for the title */
         .game-title {
             width: 100%;
             padding: 8px 0;
-            color: white; /* Clean white text */
+            color: white;
             font-weight: bold;
             text-align: center;
             font-size: 13px;
-            background: #000000; /* Solid black background bar */
-            text-shadow: none; /* Clean look, no shadow */
-            border-top: 1px solid #333; /* Subtle separation from image */
+            background: #000000;
+            border-top: 1px solid #333;
         }
 
         .status-bar {
