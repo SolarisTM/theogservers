@@ -17,20 +17,26 @@
             min-height: 100vh;
         }
 
-        /* Widened window for 4-column layout */
         .main-window {
             width: 1100px; 
             max-width: 98%;
             margin-top: 20px;
+            background: #ece9d8; /* Frame color */
+        }
+
+        /* Container central com a cor #191919 */
+        .window-content-area {
+            background-color: #191919 !important;
+            color: #ffffff;
         }
 
         /* Centralized Action Buttons */
         .action-buttons {
             display: flex;
             gap: 8px;
-            padding: 10px;
-            background: #ece9d8;
-            border-bottom: 1px solid #aca899;
+            padding: 12px;
+            background: #191919; /* Matched to requested hex */
+            border-bottom: 1px solid #333;
             justify-content: center;
         }
 
@@ -38,24 +44,24 @@
             min-width: 100px;
         }
 
-        /* 4-Column Grid */
+        /* 4-Column Grid with Dark Background */
         .game-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 15px;
             padding: 20px;
-            background: #fff;
+            background: #191919; /* Matched to requested hex */
             max-height: 600px;
             overflow-y: auto;
         }
 
         .game-card {
             position: relative;
-            border: 1px solid #7f9db9;
+            border: 1px solid #444; /* Subtle border for visibility on dark */
             overflow: hidden;
             cursor: pointer;
             height: 150px;
-            transition: transform 0.1s;
+            transition: transform 0.1s, border-color 0.2s;
         }
 
         .game-card:hover {
@@ -67,7 +73,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.85);
+            filter: brightness(0.8);
         }
 
         .game-title {
@@ -78,8 +84,14 @@
             font-weight: bold;
             text-align: center;
             font-size: 13px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
-            background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+            text-shadow: 2px 2px 4px rgba(0,0,0,1);
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+
+        /* Status Bar adjustment for dark mode */
+        .status-bar {
+            background: #ece9d8; /* Keeps the classic bottom bar look */
+            color: #000;
         }
 
         .taskbar {
@@ -112,46 +124,49 @@
             </div>
         </div>
         <div class="window-body" style="padding: 0;">
-            <div class="action-buttons">
-                <button class="hl-sound">Home</button>
-                <button class="hl-sound">Games</button>
-                <button class="hl-sound">Servers</button>
-                <button class="hl-sound">Status</button>
-                <button class="hl-sound" style="background: #ffbd69; font-weight: bold;">Community</button>
-            </div>
+            
+            <div class="window-content-area">
+                <div class="action-buttons">
+                    <button class="hl-sound">Home</button>
+                    <button class="hl-sound">Games</button>
+                    <button class="hl-sound">Servers</button>
+                    <button class="hl-sound">Status</button>
+                    <button class="hl-sound" style="background: #ffbd69; font-weight: bold;">Community</button>
+                </div>
 
-            <div class="game-grid">
-                <div class="game-card hl-sound">
-                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202306/2015/a12361d763784a9e525143a5023a633d.png">
-                    <div class="game-title">Call of Duty 4</div>
-                </div>
-                <div class="game-card hl-sound">
-                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2820/header.jpg">
-                    <div class="game-title">Quake III Arena</div>
-                </div>
-                <div class="game-card hl-sound">
-                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/24860/header.jpg">
-                    <div class="game-title">Battlefield 2</div>
-                </div>
-                <div class="game-card hl-sound">
-                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/41070/header.jpg">
-                    <div class="game-title">Serious Sam Classic</div>
-                </div>
-                <div class="game-card hl-sound">
-                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/13140/header.jpg">
-                    <div class="game-title">Medal of Honor</div>
-                </div>
-                <div class="game-card hl-sound">
-                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/9010/header.jpg">
-                    <div class="game-title">Unreal Tournament</div>
-                </div>
-                <div class="game-card hl-sound">
-                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/22300/header.jpg">
-                    <div class="game-title">Fallout 3</div>
-                </div>
-                <div class="game-card hl-sound">
-                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/6520/header.jpg">
-                    <div class="game-title">Garry's Mod</div>
+                <div class="game-grid">
+                    <div class="game-card hl-sound">
+                        <img src="https://image.api.playstation.com/vulcan/ap/rnd/202306/2015/a12361d763784a9e525143a5023a633d.png">
+                        <div class="game-title">Call of Duty 4</div>
+                    </div>
+                    <div class="game-card hl-sound">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2820/header.jpg">
+                        <div class="game-title">Quake III Arena</div>
+                    </div>
+                    <div class="game-card hl-sound">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/24860/header.jpg">
+                        <div class="game-title">Battlefield 2</div>
+                    </div>
+                    <div class="game-card hl-sound">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/41070/header.jpg">
+                        <div class="game-title">Serious Sam Classic</div>
+                    </div>
+                    <div class="game-card hl-sound">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/13140/header.jpg">
+                        <div class="game-title">Medal of Honor</div>
+                    </div>
+                    <div class="game-card hl-sound">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/9010/header.jpg">
+                        <div class="game-title">Unreal Tournament</div>
+                    </div>
+                    <div class="game-card hl-sound">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/22300/header.jpg">
+                        <div class="game-title">Fallout 3</div>
+                    </div>
+                    <div class="game-card hl-sound">
+                        <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/6520/header.jpg">
+                        <div class="game-title">Garry's Mod</div>
+                    </div>
                 </div>
             </div>
 
