@@ -35,11 +35,11 @@
             width: 100%;
         }
 
-        /* Navigation Menu */
+        /* Menu de Navegação */
         .action-buttons {
             display: flex;
             gap: 10px;
-            padding: 15px 20px 5px 20px;
+            padding: 20px 20px 10px 20px;
             background: #191919;
             justify-content: center;
         }
@@ -49,50 +49,37 @@
             height: 28px;
         }
 
-        /* Address Bar (Simulating IE/OldServers) */
-        .address-bar {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 5px 20px 15px 20px;
-            background: #191919;
-            border-bottom: 1px solid #333;
+        /* Seção de Boas-Vindas (Estilo OldServers) */
+        .welcome-section {
+            text-align: center;
+            padding: 20px;
+            margin: 0 40px 10px 40px;
+            background: #202020;
+            border: 1px solid #333;
         }
 
-        .address-label {
-            color: #888;
-            font-size: 11px;
+        .welcome-section h2 {
+            margin: 0 0 10px 0;
+            color: #ffbd69;
+            font-size: 22px;
+            text-transform: uppercase;
         }
 
-        .address-input-container {
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            background: #252525;
-            border: 1px solid #444;
-            padding: 3px 10px;
-            height: 22px;
+        .welcome-section p {
+            margin: 0;
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
-        .address-input-container img {
-            width: 14px;
-            height: 14px;
-            margin-right: 8px;
-        }
-
-        .address-text {
-            color: #ddd;
-            font-size: 12px;
-        }
-
-        /* Game Grid */
+        /* Grid de Jogos */
         .game-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             padding: 25px;
             background: #191919;
-            max-height: 650px;
+            max-height: 550px;
             overflow-y: auto;
         }
 
@@ -187,12 +174,10 @@
                     <button class="hl-sound" style="background: #ffbd69; font-weight: bold;">Community</button>
                 </div>
 
-                <div class="address-bar">
-                    <span class="address-label">Address</span>
-                    <div class="address-input-container">
-                        <img src="https://win98icons.alexmeub.com/icons/png/world-0.png" alt="icon">
-                        <span class="address-text">https://theogservers.com/games</span>
-                    </div>
+                <div class="welcome-section">
+                    <h2>Welcome to The OG Servers!</h2>
+                    <p>At The OG Servers, we are dedicated to keeping the multiplayer spirit alive for the greatest classic games.<br>
+                    Join our community, find active servers, and relive the golden age of online gaming.</p>
                 </div>
 
                 <div class="game-grid">
@@ -234,7 +219,7 @@
             <div class="status-bar">
                 <p class="status-bar-field">Browsing: Games</p>
                 <p class="status-bar-field">Status: System Online</p>
-                <p class="status-bar-field">v1.6</p>
+                <p class="status-bar-field">v1.7</p>
             </div>
         </div>
     </div>
