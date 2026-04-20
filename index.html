@@ -17,14 +17,12 @@
             min-height: 100vh;
         }
 
-        /* Janela ainda mais larga para preencher o espaço do fundo */
         .main-window {
             width: 1300px; 
             max-width: 98%;
             margin-top: 10px;
         }
 
-        /* Remove espaços entre a borda da janela e o conteúdo */
         .window-body {
             margin: 0 !important;
             padding: 0 !important;
@@ -37,50 +35,78 @@
             width: 100%;
         }
 
-        /* Menu de Navegação */
+        /* Navigation Menu */
         .action-buttons {
             display: flex;
             gap: 10px;
-            padding: 20px;
+            padding: 15px 20px 5px 20px;
             background: #191919;
-            border-bottom: 1px solid #333;
             justify-content: center;
         }
 
         .action-buttons button {
             min-width: 120px;
-            height: 30px;
+            height: 28px;
         }
 
-        /* Grid de Jogos expandido */
+        /* Address Bar (Simulating IE/OldServers) */
+        .address-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 20px 15px 20px;
+            background: #191919;
+            border-bottom: 1px solid #333;
+        }
+
+        .address-label {
+            color: #888;
+            font-size: 11px;
+        }
+
+        .address-input-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            background: #252525;
+            border: 1px solid #444;
+            padding: 3px 10px;
+            height: 22px;
+        }
+
+        .address-input-container img {
+            width: 14px;
+            height: 14px;
+            margin-right: 8px;
+        }
+
+        .address-text {
+            color: #ddd;
+            font-size: 12px;
+        }
+
+        /* Game Grid */
         .game-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             padding: 25px;
             background: #191919;
-            max-height: 700px;
+            max-height: 650px;
             overflow-y: auto;
         }
 
         /* Custom Scrollbar Dark */
-        .game-grid::-webkit-scrollbar {
-            width: 12px;
-        }
-        .game-grid::-webkit-scrollbar-track {
-            background: #191919;
-        }
-        .game-grid::-webkit-scrollbar-thumb {
-            background: #333;
-            border: 2px solid #191919;
-        }
+        .game-grid::-webkit-scrollbar { width: 12px; }
+        .game-grid::-webkit-scrollbar-track { background: #191919; }
+        .game-grid::-webkit-scrollbar-thumb { background: #333; border: 2px solid #191919; }
 
         .game-card {
             position: relative;
             border: 1px solid #444;
             overflow: hidden;
             cursor: pointer;
-            height: 180px; /* Banners maiores */
+            height: 180px;
             transition: transform 0.1s, border-color 0.2s;
         }
 
@@ -103,12 +129,11 @@
             color: white;
             font-weight: bold;
             text-align: center;
-            font-size: 14px;
+            font-size: 13px;
             text-shadow: 2px 2px 4px rgba(0,0,0,1);
             background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
         }
 
-        /* Barra de Status */
         .status-bar {
             background: #191919 !important;
             border-top: 1px solid #333 !important;
@@ -120,10 +145,8 @@
         .status-bar-field {
             border-right: 1px solid #333 !important;
             box-shadow: none !important;
-            padding: 2px 10px !important;
         }
 
-        /* Taskbar */
         .taskbar {
             position: fixed; bottom: 0; left: 0; right: 0;
             height: 30px;
@@ -162,6 +185,14 @@
                     <button class="hl-sound">Servers</button>
                     <button class="hl-sound">Status</button>
                     <button class="hl-sound" style="background: #ffbd69; font-weight: bold;">Community</button>
+                </div>
+
+                <div class="address-bar">
+                    <span class="address-label">Address</span>
+                    <div class="address-input-container">
+                        <img src="https://win98icons.alexmeub.com/icons/png/world-0.png" alt="icon">
+                        <span class="address-text">https://theogservers.com/games</span>
+                    </div>
                 </div>
 
                 <div class="game-grid">
