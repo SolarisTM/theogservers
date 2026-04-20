@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The OG Servers - Online Gaming Servers</title>
+    
+    <!-- FAVICON ADICIONADO -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png">
+
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
     <style>
         body {
-            /* ATUALIZADO: Link direto para o wallpaper Bliss original */
             background: #0078D7 url('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/bliss-windows-xp.jpg') no-repeat center center fixed;
-            background-size: cover; /* Garante que cubra a tela toda */
+            background-size: cover;
             margin: 0; padding: 20px;
             font-family: "Tahoma", sans-serif;
             display: flex;
@@ -24,6 +28,18 @@
             margin-top: 5px;
         }
 
+        /* Ícone na Barra de Título (Efeito Windows XP) */
+        .title-bar-text::before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 6px;
+            background: url('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png') no-repeat center center;
+            background-size: contain;
+        }
+
         .window-body {
             margin: 0 !important;
             padding: 0 !important;
@@ -36,7 +52,6 @@
             width: 100%;
         }
 
-        /* Menu de Navegação com Ícones */
         .action-buttons {
             display: flex;
             gap: 12px;
@@ -62,7 +77,6 @@
             height: 18px;
         }
 
-        /* Welcome Section */
         .welcome-section {
             text-align: center;
             padding: 25px;
@@ -78,7 +92,6 @@
             text-transform: uppercase;
         }
 
-        /* Game Grid - Estilo Steam Grid Horizontal */
         .game-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -89,7 +102,6 @@
             overflow-y: auto;
         }
 
-        /* Custom Scrollbar Dark */
         .game-grid::-webkit-scrollbar { width: 12px; }
         .game-grid::-webkit-scrollbar-track { background: #191919; }
         .game-grid::-webkit-scrollbar-thumb { background: #333; border: 2px solid #191919; }
@@ -136,7 +148,6 @@
             border-top: 1px solid #333;
         }
 
-        /* Rodapé */
         .site-footer {
             padding: 15px;
             text-align: center;
@@ -146,7 +157,6 @@
             border-top: 1px solid #252525;
         }
 
-        /* Taskbar Windows XP */
         .taskbar {
             position: fixed; bottom: 0; left: 0; right: 0;
             height: 30px;
