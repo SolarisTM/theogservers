@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The OG Servers - Online Gaming</title>
+    <link rel="stylesheet" href="https://unpkg.com/xp.css">
+    <style>
+        body {
+            /* Papel de parede clássico do XP */
+            background: #0078D7 url('https://upload.wikimedia.org/wikipedia/commons/7/7d/Bliss_%28Windows_XP%29.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: "Tahoma", sans-serif;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .desktop-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-align: center;
+            color: white;
+            text-shadow: 1px 1px 2px black;
+            cursor: pointer;
+            width: 80px;
+        }
+
+        .desktop-icon img {
+            width: 32px;
+            height: 32px;
+            display: block;
+            margin: 0 auto 5px;
+        }
+
+        .main-window {
+            width: 600px;
+            max-width: 90%;
+            z-index: 10;
+        }
+
+        .game-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .game-card {
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .game-card:hover {
+            background: #e0e0ff;
+            outline: 1px dotted #000;
+        }
+
+        footer.taskbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #333 100%);
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 0 10px;
+            box-sizing: border-box;
+            border-top: 1px solid #0831d9;
+        }
+
+        .start-button {
+            background: linear-gradient(to bottom, #388e3c 0%, #4caf50 50%, #388e3c 100%);
+            padding: 2px 15px;
+            border-radius: 0 10px 10px 0;
+            font-weight: bold;
+            font-style: italic;
+            border: none;
+            color: white;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="desktop-icon" onclick="window.location.href='https://archive.org/details/@rizentm'">
+        <img src="https://win98icons.alexmeub.com/icons/png/world-0.png" alt="Archive">
+        <span>Minha Archive</span>
+    </div>
+
+    <div class="window main-window">
+        <div class="title-bar">
+            <div class="title-bar-text">The OG Servers - Online Gaming Servers</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <p>Selecione um servidor para conectar:</p>
+            
+            <div class="game-list">
+                <div class="game-card hl-sound">
+                    <strong>Call of Duty 4</strong>
+                    <span>(24/32)</span>
+                </div>
+                <div class="game-card hl-sound">
+                    <strong>Quake III</strong>
+                    <span>(Online)</span>
+                </div>
+                <div class="game-card hl-sound">
+                    <strong>Battlefield 2</strong>
+                    <span>(Check IP)</span>
+                </div>
+                <div class="game-card hl-sound">
+                    <strong>Serious Sam</strong>
+                    <span>(12/16)</span>
+                </div>
+            </div>
+
+            <section class="field-row" style="justify-content: flex-end; margin-top: 20px;">
+                <button class="hl-sound" onclick="window.open('https://theogservers.notion.site/Online-Gaming-Servers-44e1a69ff824834ba22c011adbf22b1a')">Ver no Notion</button>
+                <button class="hl-sound">Ajuda</button>
+            </section>
+        </div>
+        <div class="status-bar">
+            <p class="status-bar-field">Status: Conectado</p>
+            <p class="status-bar-field">Localização: Uberlândia, BR</p>
+            <p class="status-bar-field">CPU: 9800x3D</p>
+        </div>
+    </div>
+
+    <footer class="taskbar">
+        <button class="start-button">Iniciar</button>
+        <div style="margin-left: auto; font-size: 12px;" id="clock"></div>
+    </footer>
+
+    <script>
+        // Usei um link direto de um som de menu clássico
+        const menuSound = new Audio('https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Half-Life+Select+Sound&filename=mt/MTY4NTI2NDMxNjg1Mjcy_p_2fGz_2biW9_2fM.mp3');
+
+        document.querySelectorAll('.hl-sound').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                menuSound.currentTime = 0;
+                menuSound.play().catch(e => console.log("Som aguardando interação..."));
+            });
+        });
+
+        // Relógio da barra de tarefas
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        }, 1000);
+    </script>
+</body>
+</html>
