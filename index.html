@@ -7,35 +7,22 @@
     <link rel="stylesheet" href="https://unpkg.com/xp.css">
     <style>
         body {
-            /* Fundo Bliss do XP para combinar com o tema Luna */
+            /* Fundo Bliss do XP clássico */
             background: #0078D7 url('https://upload.wikimedia.org/wikipedia/commons/7/7d/Bliss_%28Windows_XP%29.png') no-repeat center center fixed;
             background-size: cover;
             margin: 0; padding: 20px;
             font-family: "Tahoma", sans-serif;
-            overflow-y: auto;
-        }
-
-        /* Layout Principal: Sidebar + Janela de Jogos */
-        .desktop-layout {
             display: flex;
-            gap: 20px;
             justify-content: center;
             align-items: flex-start;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-bottom: 50px; /* Espaço para a barra de tarefas */
+            min-height: 100vh;
         }
 
-        /* Sidebar de Boas-vindas */
-        .sidebar-window {
-            width: 300px;
-            flex-shrink: 0;
-        }
-
-        /* Janela Principal de Jogos */
+        /* Janela Principal Centralizada */
         .main-window {
-            flex-grow: 1;
-            width: 100%;
+            width: 900px;
+            max-width: 95%;
+            margin-top: 40px;
         }
 
         /* Botões de Ação no Topo (Estilo OldServers) */
@@ -47,13 +34,15 @@
             border-bottom: 1px solid #aca899;
         }
 
-        /* Grid de Jogos (Estilo OldServers) */
+        /* Grid de Jogos */
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
-            padding: 15px;
-            background: #fff; /* Fundo branco dentro da janela */
+            padding: 20px;
+            background: #fff;
+            max-height: 500px;
+            overflow-y: auto;
         }
 
         .game-card {
@@ -61,20 +50,20 @@
             border: 1px solid #7f9db9;
             overflow: hidden;
             cursor: pointer;
-            height: 120px;
+            height: 130px;
             transition: transform 0.1s;
         }
 
         .game-card:hover {
             transform: scale(1.03);
-            border-color: #ff8e00; /* Laranja de seleção do XP */
+            border-color: #ff8e00;
         }
 
         .game-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.8); /* Escurece um pouco para o texto aparecer */
+            filter: brightness(0.8);
         }
 
         .game-title {
@@ -84,7 +73,7 @@
             color: white;
             font-weight: bold;
             text-align: center;
-            font-size: 12px;
+            font-size: 13px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
             background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
         }
@@ -110,28 +99,6 @@
 </head>
 <body>
 
-<div class="desktop-layout">
-    
-    <div class="window sidebar-window">
-        <div class="title-bar">
-            <div class="title-bar-text">Bem-vindo</div>
-        </div>
-        <div class="window-body">
-            <h2 style="margin-top: 0; color: #0053e1;">The OG Servers</h2>
-            <p style="font-size: 12px; line-height: 1.4;">
-                Nossa missão é manter vivos os clássicos que marcaram época. 
-                Oferecemos uma comunidade ativa para jogos que ainda são joias.
-                Do Quake ao Medal of Honor, passamos por tudo.
-            </p>
-            <p style="font-size: 12px; font-weight: bold;">
-                Para jogar, entre no nosso Discord e baixe o launcher!
-            </p>
-            <button class="hl-sound" style="width: 100%; margin-top: 10px; font-weight: bold;">
-                UNITE A DISCORD
-            </button>
-        </div>
-    </div>
-
     <div class="window main-window">
         <div class="title-bar">
             <div class="title-bar-text">The OG Servers - Classic Multiplayer Revival [Uberlândia, MG]</div>
@@ -146,20 +113,67 @@
                 <button class="hl-sound">Inicio</button>
                 <button class="hl-sound">Juegos</button>
                 <button class="hl-sound">Servidores</button>
-                <button class="hl-sound">Discord</button>
+                <button class="hl-sound" onclick="window.open('https://archive.org/details/@rizentm')">Archive</button>
+                <button class="hl-sound" style="background: #ffbd69; font-weight: bold;">Unite al Discord</button>
             </div>
 
             <div class="game-grid">
-                
                 <div class="game-card hl-sound">
-                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202306/2015/a12361d763784a9e525143a5023a633d.png" alt="CoD4">
+                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202306/2015/a12361d763784a9e525143a5023a633d.png">
                     <div class="game-title">Call of Duty 4</div>
                 </div>
-
                 <div class="game-card hl-sound">
-                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2820/header.jpg" alt="Quake 3">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2820/header.jpg">
                     <div class="game-title">Quake III Arena</div>
                 </div>
-
                 <div class="game-card hl-sound">
-                    <img src="
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/24860/header.jpg">
+                    <div class="game-title">Battlefield 2</div>
+                </div>
+                <div class="game-card hl-sound">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/41070/header.jpg">
+                    <div class="game-title">Serious Sam Classic</div>
+                </div>
+                <div class="game-card hl-sound">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/13140/header.jpg">
+                    <div class="game-title">Medal of Honor</div>
+                </div>
+                <div class="game-card hl-sound">
+                    <img src="https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/9010/header.jpg">
+                    <div class="game-title">Unreal Tournament</div>
+                </div>
+            </div>
+
+            <div class="status-bar">
+                <p class="status-bar-field">Explorando: Juegos</p>
+                <p class="status-bar-field">Status: Sistema Online</p>
+                <p class="status-bar-field">v1.2</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="taskbar">
+        <button class="start-btn">Iniciar</button>
+        <div style="margin-left: 10px; color: white; font-size: 11px;">theogservers.com</div>
+        <div style="margin-left: auto; color: white; font-size: 11px;" id="clock"></div>
+    </footer>
+
+    <script>
+        // Som de Seleção do Half-Life
+        const hlClick = new Audio('https://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Half-Life+Select+Sound&filename=mt/MTY4NTI2NDMxNjg1Mjcy_p_2fGz_2biW9_2fM.mp3');
+
+        document.querySelectorAll('.hl-sound').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                hlClick.currentTime = 0;
+                hlClick.play().catch(() => {}); 
+            });
+        });
+
+        // Relógio
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('clock').innerText = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        }, 1000);
+    </script>
+</body>
+</html>
