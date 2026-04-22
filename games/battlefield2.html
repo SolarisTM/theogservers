@@ -84,7 +84,7 @@
             height: 24px;
         }
 
-        /* --- GAME CONTENT AREA --- */
+        /* --- GAME HERO --- */
         .game-hero-container {
             position: relative;
             width: 100%;
@@ -156,20 +156,95 @@
 
         .metadata-label { color: #aaa; font-weight: bold; margin-right: 5px; }
 
+        /* --- CONTENT AREA & SIDEBAR --- */
         .content-wrapper {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            padding: 40px 60px;
             background-color: #191919;
         }
 
-        .media-container {
-            width: 100%;
+        .main-content-area {
+            flex: 1;
             max-width: 900px;
-            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
+        .sidebar {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-window {
+            background: #202020;
+            border: 1px solid #333;
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        .sidebar-header {
+            background: linear-gradient(to bottom, #333333 0%, #000000 100%);
+            color: white;
+            padding: 6px 12px;
+            font-weight: bold;
+            font-size: 13px;
+            border: 1px solid #111;
+            border-bottom: none;
+        }
+
+        .sidebar-body {
+            padding: 15px;
+            color: #ccc;
+            font-size: 13px;
+        }
+
+        .detail-item {
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #282828;
+            padding-bottom: 8px;
+        }
+
+        .detail-item:last-child { border-bottom: none; }
+
+        .detail-label {
+            font-weight: bold;
+            color: #eee;
+        }
+
+        .server-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #00a2ed;
+            text-decoration: none;
+            margin-bottom: 15px;
+            font-weight: bold;
+            padding: 8px;
+            background: #252525;
+            border: 1px solid #333;
+            transition: all 0.2s;
+        }
+
+        .server-link:hover {
+            background: #333;
+            color: #ffbd69;
+            border-color: #444;
+        }
+
+        .server-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Vídeo e Descrição */
         .video-wrapper {
             width: 100%;
             aspect-ratio: 16 / 9;
@@ -185,8 +260,6 @@
         }
 
         .description-box {
-            width: 100%;
-            max-width: 900px;
             color: #ccc;
             line-height: 1.7;
             font-size: 14px;
@@ -223,11 +296,9 @@
             box-shadow: inset 1px 1px 1px #fff;
         }
 
-        @media (max-width: 768px) {
-            .action-buttons { flex-wrap: wrap; }
-            .action-buttons button { min-width: calc(50% - 10px); }
-            .game-logo-img { max-width: 250px; left: 20px; top: 30px; }
-            .availability-bar { padding: 0 20px; gap: 15px; height: auto; padding: 10px 20px; }
+        @media (max-width: 1100px) {
+            .content-wrapper { flex-direction: column; align-items: center; padding: 20px; }
+            .sidebar { width: 100%; max-width: 900px; }
         }
     </style>
 </head>
@@ -290,15 +361,55 @@
             </div>
 
             <div class="content-wrapper">
-                <div class="media-container">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/h8W5TGUVK1A" allowfullscreen></iframe>
+                <div class="main-content-area">
+                    <div class="media-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/h8W5TGUVK1A" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="description-box">
+                        <p>Battlefield 2 is a single-player and multiplayer first-person shooter set in a near-future global conflict. The game depicts a hypothetical war in which the United States, China, and the Middle Eastern Coalition (MEC) fight for dominance across a variety of large-scale battlefields.</p>
+                        <p>Multiplayer battles are designed for up to 64 players and are fought over large maps divided into control points. Capturing and holding flags reduces the opposing team’s “tickets,” a shared pool of reinforcements. Victory is achieved by draining the enemy’s tickets to zero.</p>
                     </div>
                 </div>
-                <div class="description-box">
-                    <p>Battlefield 2 is a single-player and multiplayer first-person shooter set in a near-future global conflict. The game depicts a hypothetical war in which the United States, China, and the Middle Eastern Coalition (MEC) fight for dominance across a variety of large-scale battlefields. Players take the role of infantry soldiers or vehicle operators and can also rise through the ranks to act as squad leaders or overall commander, directing the flow of combat across the map.</p>
-                    <p>Multiplayer battles are designed for up to 64 players and are fought over large maps divided into control points. Capturing and holding flags reduces the opposing team’s “tickets,” a shared pool of reinforcements. Victory is achieved by draining the enemy’s tickets to zero. Players can join squads that function as small tactical units, with squad leaders able to request supplies, reinforcements, or transportation. The commander role provides a strategic layer, granting access to satellite scans, UAV surveillance, supply drops, and artillery strikes, all of which can turn the tide of battle.</p>
-                </div>
+
+                <aside class="sidebar">
+                    <div class="sidebar-window">
+                        <div class="sidebar-header">Online Details</div>
+                        <div class="sidebar-body">
+                            <div class="detail-item">
+                                <span class="detail-label">Servers:</span>
+                                <span>Community</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">LAN:</span>
+                                <span>Supported</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Cross-Play:</span>
+                                <span>Unavailable</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Max. Players:</span>
+                                <span>64</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-window">
+                        <div class="sidebar-header">Our Servers</div>
+                        <div class="sidebar-body">
+                            <a href="#" class="server-link nav-element">
+                                <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/games/Battlefield%202.png" class="server-icon" alt="BF2">
+                                OG Battlefield 2 [US East]
+                            </a>
+                            <a href="#" class="server-link nav-element">
+                                <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/games/Battlefield%202.png" class="server-icon" alt="BF2">
+                                OG Battlefield 2 [BR/Latam]
+                            </a>
+                        </div>
+                    </div>
+                </aside>
             </div>
 
             <div class="site-footer">
@@ -320,14 +431,12 @@
 
         themeMusic.volume = 0.2;
 
-        // Inicia na primeira interação
         function startTheme() {
             if (themeMusic.paused) {
                 themeMusic.play().catch(e => {});
             }
         }
 
-        // Função de Pausa/Play com Double Click
         function toggleMusic() {
             if (themeMusic.paused) {
                 themeMusic.play();
