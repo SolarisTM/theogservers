@@ -52,7 +52,7 @@
             flex-direction: column;
         }
 
-        /* --- NAVIGATION MENU (Baseado na sua Index Mobile) --- */
+        /* --- NAVIGATION MENU (Sincronizado com Index) --- */
         .action-buttons {
             display: flex;
             gap: 12px;
@@ -219,7 +219,6 @@
             color: #eee;
         }
 
-        /* --- LINKS --- */
         .server-link {
             display: flex;
             align-items: center;
@@ -233,12 +232,6 @@
             border: 1px solid #333;
             transition: all 0.2s;
         }
-
-        .mod-link {
-            color: #b42020 !important;
-        }
-
-        .server-link:last-child { margin-bottom: 0; }
 
         .server-link:hover {
             background: #333;
@@ -302,7 +295,7 @@
             box-shadow: inset 1px 1px 1px #fff;
         }
 
-        /* --- ADAPTAÇÕES MOBILE (Lógica do seu Index) --- */
+        /* --- ADAPTAÇÕES MOBILE (IGUAL AO INDEX) --- */
         @media (max-width: 768px) {
             body { padding: 5px; padding-bottom: 40px; }
             .main-window { margin-top: 0; }
@@ -341,6 +334,10 @@
             .sidebar { width: 100%; }
             .description-box { padding: 20px; }
             .taskbar { height: 35px; }
+        }
+
+        @media (max-width: 480px) {
+            .action-buttons .nav-link, .action-buttons button { min-width: 100%; }
         }
     </style>
 </head>
@@ -408,8 +405,8 @@
                         <iframe src="https://www.youtube.com/embed/h8W5TGUVK1A" allowfullscreen></iframe>
                     </div>
                     <div class="description-box">
-                        <p>Battlefield 2 is a single-player and multiplayer first-person shooter set in a near-future global conflict. The game depicts a hypothetical war in which the United States, China, and the Middle Eastern Coalition (MEC) fight for dominance across a variety of large-scale battlefields.</p>
-                        <p>Multiplayer battles are designed for up to 64 players and are fought over large maps divided into control points. Capturing and holding flags reduces the opposing team’s “tickets,” a shared pool of reinforcements. Victory is achieved by draining the enemy’s tickets to zero.</p>
+                        <p>Battlefield 2 is a single-player and multiplayer first-person shooter set in a near-future global conflict. The game depicts a hypothetical war in which the United States, China, and the Middle Eastern Coalition (MEC) fight for dominance across a variety of large-scale battlefields. Players take the role of infantry soldiers or vehicle operators and can also rise through the ranks to act as squad leaders or overall commander, directing the flow of combat across the map.</p>
+                        <p>Multiplayer battles are designed for up to 64 players and are fought over large maps divided into control points. Capturing and holding flags reduces the opposing team’s “tickets,” a shared pool of reinforcements. Victory is achieved by draining the enemy’s tickets to zero. Players can join squads that function as small tactical units, with squad leaders able to request supplies, reinforcements, or transportation. The commander role provides a strategic layer, granting access to satellite scans, UAV surveillance, supply drops, and artillery strikes, all of which can turn the tide of battle.</p>
                     </div>
                 </div>
 
@@ -447,19 +444,9 @@
                                 <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/games/Battlefield%202.png" class="server-icon" alt="BF2">
                                 OG Battlefield 2 [BR/Latam]
                             </a>
-                        </div>
-                    </div>
-
-                    <div class="sidebar-window">
-                        <div class="sidebar-header">Featured Mods</div>
-                        <div class="sidebar-body">
-                            <a href="#" class="server-link mod-link nav-element">
-                                <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Network%20Setup%20Wizard.png" class="server-icon" alt="Mod">
-                                Project Reality
-                            </a>
-                            <a href="#" class="server-link mod-link nav-element">
-                                <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Network%20Setup%20Wizard.png" class="server-icon" alt="Mod">
-                                Forgotten Hope 2
+                            <a href="#" class="server-link nav-element">
+                                <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/games/Battlefield%202.png" class="server-icon" alt="BF2">
+                                OG Battlefield 2 [EU West]
                             </a>
                         </div>
                     </div>
