@@ -192,7 +192,7 @@
         .description-box {
             color: #ccc;
             line-height: 1.6;
-            font-size: 13px; /* Fonte reduzida aqui */
+            font-size: 13px;
             background: #202020;
             padding: 25px;
             border: 1px solid #333;
@@ -201,7 +201,7 @@
 
         .description-title {
             display: block;
-            font-size: 18px; /* Título reduzido aqui */
+            font-size: 18px;
             font-weight: bold;
             color: #fff;
             margin-bottom: 12px;
@@ -312,7 +312,7 @@
             box-shadow: inset 1px 1px 1px #fff;
         }
 
-        /* --- ADAPTAÇÕES MOBILE (SINCRO COM INDEX) --- */
+        /* --- ADAPTAÇÕES MOBILE --- */
         @media (max-width: 768px) {
             body { padding: 5px; padding-bottom: 40px; }
             .main-window { margin-top: 0; }
@@ -354,7 +354,17 @@
         }
 
         @media (max-width: 480px) {
-            .action-buttons .nav-link, .action-buttons button { min-width: 100%; }
+            /* Configuração para 2 colunas com 3 itens cada */
+            .action-buttons .nav-link, .action-buttons > button { 
+                width: calc(50% - 6px); 
+                min-width: unset;
+                flex-grow: 0;
+            }
+            /* Faz o botão dentro do link ocupar 100% da largura do container do link */
+            .action-buttons .nav-link button {
+                width: 100%;
+                min-width: 100%;
+            }
         }
     </style>
 </head>
@@ -392,8 +402,11 @@
                 <button class="nav-element">
                     <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Network%20Connections.png" alt="Status"> Status
                 </button>
-                <button class="nav-element" style="background: #ffbd69; font-weight: bold; color: #000;">
+                <button class="nav-element">
                     <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Windows%20Messenger.png" alt="Community"> Community
+                </button>
+                <button class="nav-element" style="background: #ffbd69; font-weight: bold; color: #000;">
+                    <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Remote%20Assistance.png" alt="Donations"> Donations
                 </button>
             </div>
 
