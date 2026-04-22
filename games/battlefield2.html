@@ -21,12 +21,15 @@
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
+            padding-bottom: 50px; /* Espaço para a taskbar */
         }
 
         .main-window {
             width: 1800px; 
             max-width: 98%;
             margin-top: 5px;
+            display: flex;
+            flex-direction: column;
         }
 
         .title-bar-text::before {
@@ -44,9 +47,11 @@
             margin: 0 !important;
             padding: 0 !important;
             background-color: #191919 !important;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* --- NAVIGATION MENU (INTACT) --- */
+        /* --- NAVIGATION MENU --- */
         .action-buttons {
             display: flex;
             gap: 12px;
@@ -79,7 +84,6 @@
         }
 
         /* --- GAME CONTENT AREA --- */
-        
         .game-hero-container {
             position: relative;
             width: 100%;
@@ -98,7 +102,6 @@
             filter: drop-shadow(3px 3px 15px rgba(0,0,0,0.9));
         }
 
-        /* AVAILABILITY BAR */
         .availability-bar {
             position: absolute;
             bottom: 0;
@@ -135,11 +138,6 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            transition: opacity 0.2s;
-        }
-
-        .platform-item:hover {
-            opacity: 0.7;
         }
 
         .platform-icon {
@@ -147,7 +145,6 @@
             height: 20px;
         }
 
-        /* 2. Metadata Bar */
         .metadata-bar {
             background-color: #111;
             padding: 15px 60px;
@@ -155,9 +152,9 @@
             font-size: 12px;
             color: #888;
         }
+
         .metadata-label { color: #aaa; font-weight: bold; margin-right: 5px; }
 
-        /* 3. Media & Description Layout */
         .content-wrapper {
             display: flex;
             flex-direction: column;
@@ -198,13 +195,15 @@
             box-sizing: border-box;
         }
 
+        /* --- FOOTER IGUAL AO DA INDEX --- */
         .site-footer {
-            padding: 15px;
+            padding: 20px;
             text-align: center;
             color: #666;
             font-size: 11px;
             background: #191919;
             border-top: 1px solid #252525;
+            margin-top: auto; /* Garante que fique no fundo se houver pouco conteúdo */
         }
 
         .taskbar {
@@ -228,7 +227,7 @@
             .action-buttons { flex-wrap: wrap; }
             .action-buttons button { min-width: calc(50% - 10px); }
             .game-logo-img { max-width: 250px; left: 20px; top: 30px; }
-            .availability-bar { padding: 0 20px; gap: 15px; }
+            .availability-bar { padding: 0 20px; gap: 15px; height: auto; padding: 10px 20px; }
         }
     </style>
 </head>
@@ -253,14 +252,12 @@
                         Home
                     </button>
                 </a>
-
                 <a href="../index.html#games" class="nav-link">
                     <button class="nav-element">
                         <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Game%20Controller.png" alt="Games">
                         Games
                     </button>
                 </a>
-
                 <button class="nav-element">
                     <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Manage%20Your%20Server.png" alt="Servers">
                     Servers
@@ -277,7 +274,6 @@
 
             <div class="game-hero-container">
                 <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/logos/Battlefield%202.png" alt="Battlefield 2 Logo" class="game-logo-img">
-                
                 <div class="availability-bar">
                     <span class="availability-title">Availability</span>
                     <div class="platform-list">
@@ -300,7 +296,6 @@
                         <iframe src="https://www.youtube.com/embed/h8W5TGUVK1A" allowfullscreen></iframe>
                     </div>
                 </div>
-
                 <div class="description-box">
                     <p>Battlefield 2 is a modern warfare first-person shooter that revolutionized tactical squad-based combat. Featuring a wide range of vehicles and specialized kits, it remains a gold standard for teamplay.</p>
                     <p>Our servers provide the original 2005 experience, including full Commander support and squad leadership mechanics that are often missing in modern titles.</p>
