@@ -52,7 +52,7 @@
             flex-direction: column;
         }
 
-        /* --- NAVIGATION MENU --- */
+        /* --- NAVIGATION MENU (Baseado na sua Index Mobile) --- */
         .action-buttons {
             display: flex;
             gap: 12px;
@@ -224,7 +224,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #00a2ed; /* Azul padrão para servidores */
+            color: #00a2ed; 
             text-decoration: none;
             margin-bottom: 10px;
             font-weight: bold;
@@ -234,7 +234,6 @@
             transition: all 0.2s;
         }
 
-        /* COR DOS LINKS DOS MODS (Vermelho Mod DB) */
         .mod-link {
             color: #b42020 !important;
         }
@@ -243,7 +242,7 @@
 
         .server-link:hover {
             background: #333;
-            color: #ffbd69 !important; /* Cor alaranjada/amarelada no hover preservada */
+            color: #ffbd69 !important;
             border-color: #444;
         }
 
@@ -303,9 +302,45 @@
             box-shadow: inset 1px 1px 1px #fff;
         }
 
-        @media (max-width: 1100px) {
-            .content-wrapper { flex-direction: column; align-items: center; padding: 20px; }
-            .sidebar { width: 100%; max-width: 900px; }
+        /* --- ADAPTAÇÕES MOBILE (Lógica do seu Index) --- */
+        @media (max-width: 768px) {
+            body { padding: 5px; padding-bottom: 40px; }
+            .main-window { margin-top: 0; }
+
+            .action-buttons { 
+                flex-wrap: wrap; 
+                gap: 8px; 
+                padding: 15px 10px; 
+            }
+            .action-buttons .nav-link, 
+            .action-buttons button { 
+                min-width: calc(50% - 10px); 
+                flex-grow: 1; 
+            }
+
+            .game-hero-container { height: 250px; }
+            .game-logo-img { max-width: 250px; left: 20px; top: 30px; }
+            
+            .availability-bar { 
+                padding: 10px 20px; 
+                gap: 15px; 
+                height: auto; 
+                flex-direction: column; 
+                align-items: flex-start;
+            }
+
+            .metadata-bar { padding: 15px 20px; text-align: center; font-size: 11px; }
+
+            .content-wrapper { 
+                flex-direction: column; 
+                align-items: center; 
+                padding: 20px 10px; 
+                gap: 20px;
+            }
+
+            .sidebar { width: 100%; }
+            .description-box { padding: 20px; }
+            .taskbar { height: 35px; }
         }
     </style>
 </head>
@@ -369,10 +404,8 @@
 
             <div class="content-wrapper">
                 <div class="main-content-area">
-                    <div class="media-container">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/h8W5TGUVK1A" allowfullscreen></iframe>
-                        </div>
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/h8W5TGUVK1A" allowfullscreen></iframe>
                     </div>
                     <div class="description-box">
                         <p>Battlefield 2 is a single-player and multiplayer first-person shooter set in a near-future global conflict. The game depicts a hypothetical war in which the United States, China, and the Middle Eastern Coalition (MEC) fight for dominance across a variety of large-scale battlefields.</p>
@@ -449,37 +482,15 @@
         const clickSound = new Audio('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/sounds/windows-xp/Windows%20Navigation%20Start.mp3');
         const hoverSound = new Audio('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/sounds/windows-xp/Windows%20XP%20Balloon.mp3');
         const themeMusic = document.getElementById('bg-theme');
-
         themeMusic.volume = 0.2;
 
-        function startTheme() {
-            if (themeMusic.paused) {
-                themeMusic.play().catch(e => {});
-            }
-        }
-
-        function toggleMusic() {
-            if (themeMusic.paused) {
-                themeMusic.play();
-            } else {
-                themeMusic.pause();
-            }
-        }
+        function startTheme() { if (themeMusic.paused) { themeMusic.play().catch(e => {}); } }
+        function toggleMusic() { if (themeMusic.paused) { themeMusic.play(); } else { themeMusic.pause(); } }
 
         const interactiveElements = document.querySelectorAll('.nav-element, button, .platform-item');
-
         interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                hoverSound.currentTime = 0;
-                hoverSound.play().catch(e => {});
-            });
-
-            el.addEventListener('mousedown', (e) => {
-                if (e.button === 0) {
-                    clickSound.currentTime = 0;
-                    clickSound.play().catch(e => {});
-                }
-            });
+            el.addEventListener('mouseenter', () => { hoverSound.currentTime = 0; hoverSound.play().catch(e => {}); });
+            el.addEventListener('mousedown', (e) => { if (e.button === 0) { clickSound.currentTime = 0; clickSound.play().catch(e => {}); } });
         });
 
         setInterval(() => {
