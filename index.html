@@ -27,7 +27,6 @@
         }
 
         .main-window {
-            /* Aumentado de 1600px para 1800px para um visual mais largo */
             width: 1800px; 
             max-width: 98%;
             margin-top: 5px;
@@ -48,12 +47,6 @@
             margin: 0 !important;
             padding: 0 !important;
             background-color: #191919 !important;
-        }
-
-        .window-content-area {
-            background-color: #191919;
-            color: #ffffff;
-            width: 100%;
         }
 
         .action-buttons {
@@ -122,7 +115,6 @@
 
         .game-grid {
             display: grid;
-            /* Mantendo 4 colunas, que agora ficarão mais espaçosas com a janela maior */
             grid-template-columns: repeat(4, 1fr);
             gap: 25px;
             padding: 30px 60px;
@@ -132,7 +124,7 @@
         .game-card {
             border: 1px solid #444;
             overflow: hidden;
-            cursor: pointer;
+            text-decoration: none; /* Remove sublinhado do link */
             height: 200px;
             transition: transform 0.1s, border-color 0.2s;
             display: flex;
@@ -190,26 +182,10 @@
             box-shadow: inset 1px 1px 1px #fff;
         }
 
-        /* --- ADAPTAÇÕES PARA MOBILE --- */
         @media (max-width: 768px) {
             body { padding: 5px; padding-bottom: 40px; }
-            .main-window { margin-top: 0; }
             .action-buttons { flex-wrap: wrap; gap: 8px; padding: 15px 10px; }
-            .action-buttons .nav-link, .action-buttons button { min-width: calc(50% - 10px); flex-grow: 1; }
-            .welcome-section { padding: 15px; margin: 10px; }
-            .welcome-gif { max-width: 70%; }
-            .arrow-gif { width: 30px; }
             .game-grid { grid-template-columns: repeat(2, 1fr); padding: 15px; gap: 15px; }
-            .game-card { height: 160px; }
-            .game-card img { height: 120px; }
-            .game-title { font-size: 12px; }
-            .taskbar { height: 35px; }
-        }
-
-        @media (max-width: 480px) {
-            .game-grid { grid-template-columns: 1fr; }
-            .action-buttons .nav-link, .action-buttons button { min-width: 100%; }
-            .gif-container { gap: 10px; }
         }
     </style>
 </head>
@@ -267,10 +243,11 @@
                 </div>
 
                 <div class="game-grid" id="game-section">
-                    <div class="game-card nav-element">
+                    <a href="games/battlefield2.html" class="game-card nav-element">
                         <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/banners/Battlefield%202.png">
                         <div class="game-title">Battlefield 2</div>
-                    </div>
+                    </a>
+
                     <div class="game-card nav-element">
                         <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/banners/Call%20of%20Duty%20Modern%20Warfare%20(2007).png">
                         <div class="game-title">Call of Duty: Modern Warfare (2007)</div>
