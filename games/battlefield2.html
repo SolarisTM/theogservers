@@ -146,7 +146,6 @@
             height: 20px;
         }
 
-        /* METADATA BAR ATUALIZADA */
         .metadata-bar {
             background-color: #111;
             padding: 15px 60px;
@@ -232,7 +231,9 @@
         }
     </style>
 </head>
-<body>
+<body onclick="startTheme()"> <audio id="bg-theme" loop preload="auto">
+        <source src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/sounds/themes/Battlefield%202%20Main%20Menu.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="window main-window">
         <div class="title-bar">
@@ -240,36 +241,30 @@
             <div class="title-bar-controls">
                 <button aria-label="Minimize"></button>
                 <button aria-label="Maximize"></button>
-                <button aria-label="Close" onclick="window.location.href='../index.html'"></button>
+                <button aria-label="Close" onclick="window.location.href='index.html'"></button>
             </div>
         </div>
         
         <div class="window-body">
-            
             <div class="action-buttons">
-                <a href="../index.html" class="nav-link">
+                <a href="index.html" class="nav-link">
                     <button class="nav-element">
-                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/IE%20Home.png" alt="Home">
-                        Home
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/IE%20Home.png" alt="Home"> Home
                     </button>
                 </a>
-                <a href="../index.html#games" class="nav-link">
+                <a href="index.html#game-section" class="nav-link">
                     <button class="nav-element">
-                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Game%20Controller.png" alt="Games">
-                        Games
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Game%20Controller.png" alt="Games"> Games
                     </button>
                 </a>
                 <button class="nav-element">
-                    <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Manage%20Your%20Server.png" alt="Servers">
-                    Servers
+                    <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Manage%20Your%20Server.png" alt="Servers"> Servers
                 </button>
                 <button class="nav-element">
-                    <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Network%20Connections.png" alt="Status">
-                    Status
+                    <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Network%20Connections.png" alt="Status"> Status
                 </button>
                 <button class="nav-element" style="background: #ffbd69; font-weight: bold; color: #000;">
-                    <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Windows%20Messenger.png" alt="Community">
-                    Community
+                    <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Windows%20Messenger.png" alt="Community"> Community
                 </button>
             </div>
 
@@ -279,8 +274,7 @@
                     <span class="availability-title">Availability</span>
                     <div class="platform-list">
                         <a href="https://store.steampowered.com/" target="_blank" class="platform-item">
-                            <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/steam_icon.png" onerror="this.src='https://www.google.com/s2/favicons?domain=steampowered.com&sz=32'" class="platform-icon" alt="Steam">
-                            Steam
+                            <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/steam_icon.png" class="platform-icon" alt="Steam"> Steam
                         </a>
                     </div>
                 </div>
@@ -312,7 +306,7 @@
     </div>
 
     <footer class="taskbar">
-        <button class="start-btn nav-element" onclick="window.location.href='../index.html'">Start</button>
+        <button class="start-btn nav-element" onclick="window.location.href='index.html'">Start</button>
         <div style="margin-left: 10px; color: white; font-size: 11px;">theogservers.com</div>
         <div style="margin-left: auto; color: white; font-size: 11px;" id="clock"></div>
     </footer>
@@ -320,6 +314,16 @@
     <script>
         const clickSound = new Audio('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/sounds/windows-xp/Windows%20Navigation%20Start.mp3');
         const hoverSound = new Audio('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/sounds/windows-xp/Windows%20XP%20Balloon.mp3');
+        const themeMusic = document.getElementById('bg-theme');
+
+        // Volume suave (20%)
+        themeMusic.volume = 0.2;
+
+        function startTheme() {
+            if (themeMusic.paused) {
+                themeMusic.play().catch(e => console.log("Aguardando interação do usuário..."));
+            }
+        }
 
         const interactiveElements = document.querySelectorAll('.nav-element, button, .platform-item');
 
