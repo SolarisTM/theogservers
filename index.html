@@ -206,9 +206,16 @@
         }
 
         @media (max-width: 480px) {
-            .action-buttons .nav-link, .action-buttons button { 
-                min-width: calc(50% - 8px); 
-                flex-grow: 1;
+            /* Garante que tanto links quanto botões ocupem o mesmo espaço no grid */
+            .action-buttons .nav-link, .action-buttons > button { 
+                width: calc(50% - 6px); 
+                min-width: unset;
+                flex-grow: 0;
+            }
+            /* Faz o botão dentro do link ocupar 100% da largura do container do link */
+            .action-buttons .nav-link button {
+                width: 100%;
+                min-width: 100%;
             }
             .game-grid { grid-template-columns: 1fr; }
             .gif-container { gap: 10px; }
