@@ -270,14 +270,42 @@
             transition: all 0.2s;
         }
 
-        .mod-link {
-            color: #b42020 !important;
+        /* Estilo Botão Steam XP */
+        .steam-btn {
+            background: linear-gradient(to bottom, #1b2838 0%, #2a475e 100%) !important;
+            color: #66c0f4 !important;
+            border: 2px solid #101822 !important;
+            box-shadow: inset 1px 1px 1px rgba(255,255,255,0.1);
+            width: 100%;
+            height: 45px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
         }
 
-        .server-link:hover {
-            background: #333;
-            color: #ffbd69 !important;
-            border-color: #444;
+        .steam-btn:hover {
+            background: linear-gradient(to bottom, #2a475e 0%, #1b2838 100%) !important;
+            color: #fff !important;
+        }
+
+        .console-copy-box {
+            background: #000;
+            border: 1px inset #333;
+            padding: 10px;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .console-copy-box:hover {
+            background: #111;
         }
 
         .server-icon {
@@ -441,6 +469,18 @@
 
                 <aside class="sidebar">
                     <div class="sidebar-window">
+                        <div class="sidebar-header">Connect</div>
+                        <div class="sidebar-body">
+                            <button class="nav-element steam-btn" onclick="window.location.href='steam://connect/47.233.98.90:16567'">
+                                Join Server
+                            </button>
+                            <div class="console-copy-box" onclick="copyConsoleIP()" title="Click to copy">
+                                47.233.98.90:16567
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-window">
                         <div class="sidebar-header">Server Details</div>
                         <div class="sidebar-body">
                             <div class="detail-item">
@@ -471,20 +511,6 @@
                             </a>
                         </div>
                     </div>
-
-                    <div class="sidebar-window">
-                        <div class="sidebar-header">Featured Mods</div>
-                        <div class="sidebar-body">
-                            <a href="https://www.moddb.com/mods/battlefield-1943" target="_blank" class="server-link mod-link nav-element">
-                                <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/availability/ModDB.png" class="server-icon" alt="Mod">
-                                Battlefield 1943 by Mod Company
-                            </a>
-                            <a href="https://youtu.be/IKrruHhIsdc" target="_blank" class="server-link mod-link nav-element">
-                                <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/availability/YouTube.png" class="server-icon" alt="Mod">
-                                Bustafield 2 by Mod Company
-                            </a>
-                        </div>
-                    </div>
                 </aside>
             </div>
 
@@ -509,7 +535,14 @@
         function startTheme() { if (themeMusic.paused) { themeMusic.play().catch(e => {}); } }
         function toggleMusic() { if (themeMusic.paused) { themeMusic.play(); } else { themeMusic.pause(); } }
 
-        const interactiveElements = document.querySelectorAll('.nav-element, button, .platform-item');
+        function copyConsoleIP() {
+            const ip = "47.233.98.90:16567";
+            navigator.clipboard.writeText(ip).then(() => {
+                alert("IP Copied: " + ip);
+            });
+        }
+
+        const interactiveElements = document.querySelectorAll('.nav-element, button, .platform-item, .console-copy-box');
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => { hoverSound.currentTime = 0; hoverSound.play().catch(e => {}); });
             el.addEventListener('mousedown', (e) => { if (e.button === 0) { clickSound.currentTime = 0; clickSound.play().catch(e => {}); } });
