@@ -393,18 +393,6 @@
             .description-box { padding: 20px; }
             .taskbar { height: 35px; }
         }
-
-        @media (max-width: 480px) {
-            .action-buttons .nav-link, .action-buttons > button { 
-                width: calc(50% - 6px); 
-                min-width: unset;
-                flex-grow: 0;
-            }
-            .action-buttons .nav-link button {
-                width: 100%;
-                min-width: 100%;
-            }
-        }
     </style>
 </head>
 <body onclick="startTheme()" ondblclick="toggleMusic()">
@@ -519,7 +507,7 @@
                     <div class="sidebar-window">
                         <div class="sidebar-header">Main Game</div>
                         <div class="sidebar-body">
-                            <a href="battlefield2.html" class="server-link nav-element">
+                            <a href="/games/battlefield2" class="server-link nav-element">
                                 <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/games/Battlefield%202.png" class="server-icon" alt="BF2">
                                 Battlefield 2
                             </a>
@@ -552,13 +540,9 @@
         function copyConsoleIP() {
             const ip = "47.233.98.90:16567";
             const status = document.getElementById('copy-status');
-            
             navigator.clipboard.writeText(ip).then(() => {
-                status.style.opacity = "1"; // Mostra a mensagem
-                
-                setTimeout(() => {
-                    status.style.opacity = "0"; // Esconde após 3 segundos
-                }, 3000);
+                status.style.opacity = "1";
+                setTimeout(() => { status.style.opacity = "0"; }, 3000);
             });
         }
 
