@@ -30,6 +30,7 @@
             width: 1800px; 
             max-width: 98%;
             margin-top: 5px;
+            margin-bottom: 40px; /* Margem para garantir que o final da janela apareça */
         }
 
         .title-bar-text::before {
@@ -189,7 +190,6 @@
             box-shadow: inset 1px 1px 1px #fff;
         }
 
-        /* --- ADAPTAÇÕES PARA MOBILE --- */
         @media (max-width: 768px) {
             body { padding: 5px; padding-bottom: 40px; }
             .main-window { margin-top: 0; }
@@ -203,20 +203,6 @@
             .game-card img { height: 120px; }
             .game-title { font-size: 12px; }
             .taskbar { height: 35px; }
-        }
-
-        @media (max-width: 480px) {
-            .action-buttons .nav-link, .action-buttons > button { 
-                width: calc(50% - 6px); 
-                min-width: unset;
-                flex-grow: 0;
-            }
-            .action-buttons .nav-link button {
-                width: 100%;
-                min-width: 100%;
-            }
-            .game-grid { grid-template-columns: 1fr; }
-            .gif-container { gap: 10px; }
         }
     </style>
 </head>
@@ -232,7 +218,6 @@
             </div>
         </div>
         <div class="window-body">
-            
             <div class="window-content-area">
                 <div class="action-buttons">
                     <a href="index.html" class="nav-link">
@@ -241,14 +226,12 @@
                             Home
                         </button>
                     </a>
-
                     <a href="index.html#games" class="nav-link">
                         <button class="nav-element">
                             <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Game%20Controller.png" alt="Games">
                             Games
                         </button>
                     </a>
-
                     <button class="nav-element" style="background: #e1e1e1; color: #000;">
                         <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Manage%20Your%20Server.png" alt="Servers">
                         Servers
@@ -335,23 +318,11 @@
     <script>
         const clickSound = new Audio('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/sounds/windows-xp/Windows%20Navigation%20Start.mp3');
         const hoverSound = new Audio('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/sounds/windows-xp/Windows%20XP%20Balloon.mp3');
-
         const interactiveElements = document.querySelectorAll('.nav-element, button, .game-card');
-
         interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                hoverSound.currentTime = 0;
-                hoverSound.play().catch(e => console.log("Interação necessária"));
-            });
-
-            el.addEventListener('mousedown', (e) => {
-                if (e.button === 0) {
-                    clickSound.currentTime = 0;
-                    clickSound.play().catch(e => console.log("Erro no som"));
-                }
-            });
+            el.addEventListener('mouseenter', () => { hoverSound.currentTime = 0; hoverSound.play().catch(e => {}); });
+            el.addEventListener('mousedown', (e) => { if (e.button === 0) { clickSound.currentTime = 0; clickSound.play().catch(e => {}); } });
         });
-
         setInterval(() => {
             const now = new Date();
             document.getElementById('clock').innerText = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
