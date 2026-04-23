@@ -30,7 +30,7 @@
             width: 1800px; 
             max-width: 98%;
             margin-top: 5px;
-            margin-bottom: 40px; /* Margem para garantir que o final da janela apareça */
+            margin-bottom: 40px;
         }
 
         .title-bar-text::before {
@@ -190,6 +190,7 @@
             box-shadow: inset 1px 1px 1px #fff;
         }
 
+        /* --- ADAPTAÇÕES PARA MOBILE (IGUAL À INDEX) --- */
         @media (max-width: 768px) {
             body { padding: 5px; padding-bottom: 40px; }
             .main-window { margin-top: 0; }
@@ -203,6 +204,20 @@
             .game-card img { height: 120px; }
             .game-title { font-size: 12px; }
             .taskbar { height: 35px; }
+        }
+
+        @media (max-width: 480px) {
+            .action-buttons .nav-link, .action-buttons > button { 
+                width: calc(50% - 6px); 
+                min-width: unset;
+                flex-grow: 0;
+            }
+            .action-buttons .nav-link button {
+                width: 100%;
+                min-width: 100%;
+            }
+            .game-grid { grid-template-columns: 1fr; }
+            .gif-container { gap: 10px; }
         }
     </style>
 </head>
@@ -259,14 +274,14 @@
                     <h2>The OG Servers List</h2>
                 </div>
 
-                <div class="game-grid" id="games">
+                <div class="game-grid" id="servers">
                     <div class="game-card nav-element">
                         <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/banners/Battlefield%202.png">
                         <div class="game-title">Battlefield 2</div>
                     </div>
                     <div class="game-card nav-element">
                         <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/banners/Call%20of%20Duty%20Modern%20Warfare%20(2007).png">
-                        <div class="game-title">Call of Duty: Modern Warfare (2007)</div>
+                        <div class="game-title">Call of Duty: MW (2007)</div>
                     </div>
                     <div class="game-card nav-element">
                         <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/banners/Counter-Strike%20Source.png">
@@ -286,19 +301,19 @@
                     </div>
                     <div class="game-card nav-element">
                         <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/banners/Half-Life%202%20Deathmatch.png">
-                        <div class="game-title">Half-Life 2: Deathmatch</div>
+                        <div class="game-title">Half-Life 2: DM</div>
                     </div>
                     <div class="game-card nav-element">
                         <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/banners/SWAT%204.png">
                         <div class="game-title">SWAT 4</div>
                     </div>
                     <div class="game-card nav-element">
-                        <img src="https://via.placeholder.com/400x160/000000/FFFFFF?text=Coming+Soon">
-                        <div class="game-title">Coming Soon</div>
+                        <img src="https://via.placeholder.com/400x160/000000/FFFFFF?text=New+Server+9">
+                        <div class="game-title">Server 9 (To be added)</div>
                     </div>
                     <div class="game-card nav-element">
-                        <img src="https://via.placeholder.com/400x160/000000/FFFFFF?text=Coming+Soon">
-                        <div class="game-title">Coming Soon</div>
+                        <img src="https://via.placeholder.com/400x160/000000/FFFFFF?text=New+Server+10">
+                        <div class="game-title">Server 10 (To be added)</div>
                     </div>
                 </div>
 
