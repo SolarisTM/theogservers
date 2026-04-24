@@ -16,7 +16,6 @@
             background: #0078D7 url('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/bliss-windows-xp.jpg') no-repeat center center fixed;
             background-size: cover;
             margin: 0; 
-            /* Ajustado para 25px para bater com o topo (20px + 5px da margem da janela) */
             padding: 25px 20px; 
             font-family: "Tahoma", sans-serif;
             display: flex;
@@ -30,7 +29,7 @@
         .main-window {
             width: 1800px; 
             max-width: 98%;
-            margin: 0; /* Margem resetada para controle total via padding do body */
+            margin: 0;
             display: flex;
             flex-direction: column;
         }
@@ -339,8 +338,8 @@
 
         /* --- ADAPTAÇÕES MOBILE --- */
         @media (max-width: 768px) {
-            body { padding: 15px 5px; }
-            .main-window { margin-top: 0; }
+            body { padding: 5px 0; } /* Ajustado para ser idêntico ao index.html */
+            .main-window { margin-top: 0; margin-bottom: 0; } /* Ajustado para ser idêntico ao index.html */
 
             .action-buttons { 
                 flex-wrap: wrap; 
