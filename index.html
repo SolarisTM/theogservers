@@ -18,18 +18,18 @@
         body {
             background: #0078D7 url('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/bliss-windows-xp.jpg') no-repeat center center fixed;
             background-size: cover;
-            margin: 0; padding: 20px;
+            margin: 0; 
+            padding: 20px 0; /* Ajustado para manter simetria topo/fundo */
             font-family: "Tahoma", sans-serif;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
         }
 
         .main-window {
             width: 1800px; 
             max-width: 98%;
             margin-top: 5px;
+            margin-bottom: 5px; /* Simetria com o margin-top */
         }
 
         .title-bar-text::before {
@@ -172,27 +172,10 @@
             border-top: 1px solid #252525;
         }
 
-        .taskbar {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            height: 30px;
-            background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #191919 100%);
-            border-top: 1px solid #0831d9;
-            display: flex; align-items: center; padding: 0 10px;
-            z-index: 1000;
-        }
-
-        .start-btn {
-            background: linear-gradient(to bottom, #388e3c 0%, #4caf50 50%, #388e3c 100%);
-            color: white; font-weight: bold; font-style: italic;
-            border: none; padding: 2px 15px; border-radius: 0 10px 10px 0;
-            cursor: pointer;
-            box-shadow: inset 1px 1px 1px #fff;
-        }
-
         /* --- ADAPTAÇÕES PARA MOBILE --- */
         @media (max-width: 768px) {
-            body { padding: 5px; padding-bottom: 40px; }
-            .main-window { margin-top: 0; }
+            body { padding: 5px 0; }
+            .main-window { margin-top: 0; margin-bottom: 0; }
             .action-buttons { flex-wrap: wrap; gap: 8px; padding: 15px 10px; }
             .action-buttons .nav-link, .action-buttons button { min-width: calc(50% - 10px); flex-grow: 1; }
             .welcome-section { padding: 15px; margin: 10px; }
@@ -202,7 +185,6 @@
             .game-card { height: 160px; }
             .game-card img { height: 120px; }
             .game-title { font-size: 12px; }
-            .taskbar { height: 35px; }
         }
 
         @media (max-width: 480px) {
@@ -323,12 +305,6 @@
         </div>
     </div>
 
-    <footer class="taskbar">
-        <button class="start-btn nav-element">Start</button>
-        <div style="margin-left: 10px; color: white; font-size: 11px;">theogservers.com</div>
-        <div style="margin-left: auto; color: white; font-size: 11px;" id="clock"></div>
-    </footer>
-
     <script>
         const clickSound = new Audio('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/sounds/windows-xp/Windows%20Navigation%20Start.mp3');
         const hoverSound = new Audio('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/sounds/windows-xp/Windows%20XP%20Balloon.mp3');
@@ -348,11 +324,6 @@
                 }
             });
         });
-
-        setInterval(() => {
-            const now = new Date();
-            document.getElementById('clock').innerText = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-        }, 1000);
     </script>
 </body>
 </html>
