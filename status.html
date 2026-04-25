@@ -184,16 +184,29 @@
             border-top: 1px solid #252525;
         }
 
-        /* --- ADAPTAÇÕES PARA MOBILE --- */
+        /* --- ADAPTAÇÕES PARA MOBILE (IGUAL AO SERVERS.HTML) --- */
         @media (max-width: 1200px) {
             .game-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
             body { padding: 5px 0; }
+            .main-window { margin-top: 0; margin-bottom: 0; }
             .action-buttons { flex-wrap: wrap; gap: 8px; padding: 15px 10px; }
             .action-buttons .nav-link, .action-buttons button { min-width: calc(50% - 10px); flex-grow: 1; }
             .game-grid { grid-template-columns: 1fr; padding: 15px; gap: 10px; }
+        }
+
+        @media (max-width: 480px) {
+            .action-buttons .nav-link, .action-buttons > button { 
+                width: calc(50% - 6px); 
+                min-width: unset;
+                flex-grow: 0;
+            }
+            .action-buttons .nav-link button {
+                width: 100%;
+                min-width: 100%;
+            }
         }
     </style>
 </head>
@@ -223,11 +236,13 @@
                             Games
                         </button>
                     </a>
+                    <a href="servers.html" class="nav-link">
+                        <button class="nav-element">
+                            <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Manage%20Your%20Server.png" alt="Servers">
+                            Servers
+                        </button>
+                    </a>
                     <button class="nav-element" style="background: #e1e1e1; color: #000;">
-                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Manage%20Your%20Server.png" alt="Servers">
-                        Servers
-                    </button>
-                    <button class="nav-element">
                         <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Network%20Connections.png" alt="Status">
                         Status
                     </button>
