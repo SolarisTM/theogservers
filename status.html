@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servers Status - The OG Servers</title>
+    
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png">
+
+    <link rel="stylesheet" href="https://unpkg.com/xp.css">
+    <style>
+        /* --- ESTILO DESKTOP --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0078D7 url('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/bliss-windows-xp.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0; 
+            padding: 20px 0;
+            font-family: "Tahoma", sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-window {
+            width: 1800px; 
+            max-width: 98%;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .title-bar-text::before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 6px;
+            background: url('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png') no-repeat center center;
+            background-size: contain;
+        }
+
+        .window-body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #191919 !important;
+        }
+
+        .window-content-area {
+            background-color: #191919;
+            color: #ffffff;
+            width: 100%;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            padding: 25px 20px 15px 20px;
+            background: #191919;
+            justify-content: center;
+            border-bottom: 1px solid #252525;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .action-buttons button {
+            min-width: 150px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .action-buttons button img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 25px;
+            margin: 20px auto 10px auto;
+            background: #202020;
+            border: 1px solid #333;
+            max-width: 800px;
+        }
+
+        .gif-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .welcome-gif {
+            display: block;
+            max-width: 400px;
+        }
+
+        .arrow-gif {
+            width: 50px;
+            height: auto;
+        }
+
+        .welcome-section h2 {
+            margin: 0 0 10px 0;
+            color: #ffbd69;
+            font-size: 24px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 30px 60px;
+            background: #191919;
+        }
+
+        .game-card {
+            border: 1px solid #444;
+            background: #000;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: transform 0.1s, border-color 0.2s;
+            text-decoration: none;
+            height: auto;
+        }
+
+        .game-card:hover {
+            transform: scale(1.02);
+            border-color: #ff8e00;
+        }
+
+        .game-card img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .card-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex-grow: 1;
+        }
+
+        .game-title {
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .game-tag {
+            font-size: 11px;
+            text-transform: uppercase;
+            margin-top: 2px;
+            font-weight: bold;
+        }
+
+        .status-online { color: #00ff00; }
+        .status-offline { color: #ff0000; }
+
+        .site-footer {
+            padding: 15px;
+            text-align: center;
+            color: #666;
+            font-size: 11px;
+            background: #191919;
+            border-top: 1px solid #252525;
+        }
+
+        /* --- ADAPTAÇÕES PARA MOBILE --- */
+        @media (max-width: 1200px) {
+            .game-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 5px 0; }
+            .action-buttons { flex-wrap: wrap; gap: 8px; padding: 15px 10px; }
+            .action-buttons .nav-link, .action-buttons button { min-width: calc(50% - 10px); flex-grow: 1; }
+            .game-grid { grid-template-columns: 1fr; padding: 15px; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="window main-window">
+        <div class="title-bar">
+            <div class="title-bar-text">Servers Status</div>
+            <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close" onclick="window.location.href='index.html'"></button>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="window-content-area">
+                <div class="action-buttons">
+                    <a href="index.html" class="nav-link">
+                        <button class="nav-element">
+                            <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/IE%20Home.png" alt="Home">
+                            Home
+                        </button>
+                    </a>
+                    <a href="index.html#games" class="nav-link">
+                        <button class="nav-element">
+                            <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Game%20Controller.png" alt="Games">
+                            Games
+                        </button>
+                    </a>
+                    <button class="nav-element" style="background: #e1e1e1; color: #000;">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Manage%20Your%20Server.png" alt="Servers">
+                        Servers
+                    </button>
+                    <button class="nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Network%20Connections.png" alt="Status">
+                        Status
+                    </button>
+                    <button class="nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Windows%20Messenger.png" alt="Community">
+                        Community
+                    </button>
+                    <button class="nav-element" style="background: #ffbd69; font-weight: bold; color: #000;">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/Remote%20Assistance.png" alt="Donations">
+                        Donations
+                    </button>
+                </div>
+
+                <div class="welcome-section">
+                    <div class="gif-container">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/gifs/server_fire_left.gif" alt="Seta Esquerda" class="arrow-gif">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/gifs/enter.gif" alt="Welcome" class="welcome-gif">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/gifs/server_fire_right.gif" alt="Seta Direita" class="arrow-gif">
+                    </div>
+                    <h2>Server Status List</h2>
+                    <p>Current real-time status of our game servers.</p>
+                </div>
+
+                <div class="game-grid" id="servers">
+                    <div class="game-card nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png" alt="Icon">
+                        <div class="card-info">
+                            <div class="game-title">Bustafield 2: HoodLine</div>
+                            <div class="game-tag status-online">● ONLINE</div>
+                        </div>
+                    </div>
+
+                    <div class="game-card nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png" alt="Icon">
+                        <div class="card-info">
+                            <div class="game-title">CoD4x: Vanilla Enhanced</div>
+                            <div class="game-tag status-online">● ONLINE</div>
+                        </div>
+                    </div>
+
+                    <div class="game-card nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png" alt="Icon">
+                        <div class="card-info">
+                            <div class="game-title">Counter-Strike: MW 2</div>
+                            <div class="game-tag status-offline">● OFFLINE</div>
+                        </div>
+                    </div>
+
+                    <div class="game-card nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png" alt="Icon">
+                        <div class="card-info">
+                            <div class="game-title">Extreme Football Throwdown</div>
+                            <div class="game-tag status-online">● ONLINE</div>
+                        </div>
+                    </div>
+
+                    <div class="game-card nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png" alt="Icon">
+                        <div class="card-info">
+                            <div class="game-title">GOAT’s Madness</div>
+                            <div class="game-tag status-online">● ONLINE</div>
+                        </div>
+                    </div>
+
+                    <div class="game-card nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png" alt="Icon">
+                        <div class="card-info">
+                            <div class="game-title">Half-Life: Rally</div>
+                            <div class="game-tag status-online">● ONLINE</div>
+                        </div>
+                    </div>
+
+                    <div class="game-card nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png" alt="Icon">
+                        <div class="card-info">
+                            <div class="game-title">Ragdoll Combat</div>
+                            <div class="game-tag status-online">● ONLINE</div>
+                        </div>
+                    </div>
+
+                    <div class="game-card nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png" alt="Icon">
+                        <div class="card-info">
+                            <div class="game-title">Star Wars: Galactic Warfare</div>
+                            <div class="game-tag status-online">● ONLINE</div>
+                        </div>
+                    </div>
+
+                    <div class="game-card nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png" alt="Icon">
+                        <div class="card-info">
+                            <div class="game-title">SWAT Elite Force</div>
+                            <div class="game-tag status-online">● ONLINE</div>
+                        </div>
+                    </div>
+
+                    <div class="game-card nav-element">
+                        <img src="https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/images/icons/ogs.png" alt="Icon">
+                        <div class="card-info">
+                            <div class="game-title">The Hidden: Source</div>
+                            <div class="game-tag status-offline">● OFFLINE</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="site-footer">
+                    © 2026 The OG Servers. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const clickSound = new Audio('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/sounds/windows-xp/Windows%20Navigation%20Start.mp3');
+        const hoverSound = new Audio('https://raw.githubusercontent.com/SolarisTM/TheOGServers/refs/heads/main/sounds/windows-xp/Windows%20XP%20Balloon.mp3');
+        const interactiveElements = document.querySelectorAll('.nav-element, button, .game-card');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => { hoverSound.currentTime = 0; hoverSound.play().catch(e => {}); });
+            el.addEventListener('mousedown', (e) => { if (e.button === 0) { clickSound.currentTime = 0; clickSound.play().catch(e => {}); } });
+        });
+    </script>
+</body>
+</html>
